@@ -1,0 +1,26 @@
+{
+  "development": {
+    "username": "mamafua_user",
+    "password": "@Ma5Codes",
+    "database": "mamafua_db",
+    "host": "localhost",
+    "port": 3306,
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "mamafua_user",
+    "password": "@Ma5Codes",
+    "database": "mamafua_db",
+    "host": "localhost",
+    "port": 3306,
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "mamafua_user",
+    "password": "@Ma5Codes",
+    "database": "mamafua_db",
+    "host": "localhost",
+    "port": 3306,
+    "dialect": "mysql"
+  }
+}
