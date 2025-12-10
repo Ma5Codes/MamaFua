@@ -6,7 +6,7 @@ import { getToken } from '@/lib/cookies';
 
 import { ApiResponse, UninterceptedApiErrorData } from '@/types/api';
 
-const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'; // Default fallback
+const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'; // Default fallback
 
 console.log('Base API URL:', baseUrl); // Debugging
 

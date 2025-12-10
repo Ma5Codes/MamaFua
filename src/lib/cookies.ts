@@ -1,7 +1,7 @@
 import Cookies from 'universal-cookie';
 
 const cookies = new Cookies({
-  secure: true,
+  secure: false,
 });
 
 export const getToken = (): string => {
@@ -11,13 +11,13 @@ export const getToken = (): string => {
 export const setToken = (token: string) => {
   cookies.set('@example/token', token, {
     path: '/',
-    secure: true,
+    secure: false,
   });
 };
 
 export const removeToken = () => {
   cookies.remove('@example/token', {
     path: '/',
-    secure: true,
+    secure: false,
   });
 };

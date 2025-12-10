@@ -59,7 +59,7 @@ export default function WithAuth<T>(
     React.useEffect(() => {
       if (!toastDisplayed.current) {
         if (user && isAuthenticated) {
-          if (!routePermission.includesapa1234(user.role)) {
+          if (!routePermission.includes(user.role)) {
             toast.error('Oops sorry, you have no access');
             toastDisplayed.current = true; // Mark toast as displayed
             if (user.role === 'user') {
