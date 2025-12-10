@@ -161,7 +161,7 @@ export default function CreateTransactionPage() {
 
   const onSubmitForm: SubmitHandler<TransactionData> = (data) => {
     if (!checkPassword(author, passwordCashier)) {
-      toast.error('Password salah');
+      toast.error('Wrong password');
       return;
     }
     toast.promise(
@@ -171,14 +171,14 @@ export default function CreateTransactionPage() {
 
       {
         ...defaultToastMessage,
-        success: 'Berhasil! Menambahkan data',
+        success: 'Success! Data added',
       },
     );
   };
 
   return (
     <DashboardLayout>
-      <Seo templateTitle='Transaksi Baru' />
+      <Seo templateTitle='New Transaction' />
       <main>
         <section className=''>
           <div className='layout flex min-h-screen flex-col items-center justify-center '>
@@ -215,8 +215,8 @@ export default function CreateTransactionPage() {
                     />
                     <SearchableSelectInput
                       id='cashier'
-                      label='Pilih Kasir'
-                      placeholder='Pilih Nama Kasir'
+                      label='Select Cashier'
+                      placeholder='Select Cashier Name'
                       options={[
                         { value: 'dodo', label: 'Dodo' },
                         {
@@ -240,7 +240,7 @@ export default function CreateTransactionPage() {
                       type='password'
                       id='passwordCashier'
                       label='Password'
-                      placeholder='Masukkan Password Kasir'
+                      placeholder='Enter Cashier Password'
                       validation={{}}
                     />
                   </div>
@@ -248,10 +248,10 @@ export default function CreateTransactionPage() {
                   <div className='col-span-2'>
                     <Input
                       id='name'
-                      label='Nama'
-                      placeholder='Nama Pelanggan'
+                      label='Name'
+                      placeholder='Customer Name'
                       validation={{
-                        required: 'Nama harus diisi',
+                        required: 'Name must be filled',
                       }}
                     />
                   </div>
@@ -263,8 +263,8 @@ export default function CreateTransactionPage() {
                   />
                   <Input
                     id='address'
-                    label='Alamat'
-                    placeholder='Alamat Pelanggan'
+                    label='Address'
+                    placeholder='Customer Address'
                     validation={{}}
                   />
                   <SearchableSelectInput
@@ -316,13 +316,13 @@ export default function CreateTransactionPage() {
                   <DatePicker
                     showTimeSelect={true}
                     id='dateIn'
-                    label='Tanggal Masuk'
+                    label='Date In'
                     placeholder='dd/MM/yyyy HH:mm'
                     defaultYear={2024}
                     defaultValue={getDateNowFormatted}
                     dateFormat='dd/MM/yyyy HH:mm'
                     validation={{
-                      required: 'Tanggal Masuk harus diisi',
+                      required: 'Date In must be filled',
                       valueAsDate: true,
                     }}
                   />
@@ -384,7 +384,7 @@ export default function CreateTransactionPage() {
                   </div>
                 </div>
                 <Button type='submit' className='mt-6 block w-full'>
-                  Buat Transaksi
+                  Create Transaction
                 </Button>
               </form>
             </FormProvider>

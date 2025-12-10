@@ -39,7 +39,7 @@ export default function CreateCustomerPage() {
 
   return (
     <DashboardLayout>
-      <Seo templateTitle='Customer Baru' />
+      <Seo templateTitle='New Customer' />
       <main>
         <section className=''>
           <div className='layout flex min-h-screen-lg flex-col justify-center '>
@@ -55,8 +55,8 @@ export default function CreateCustomerPage() {
                 <div className='space-y-3 md:space-y-0 md:grid  md:gap-y-3 md:gap-x-8 mb-10'>
                   <Input
                     id='name'
-                    label='Nama'
-                    placeholder='Nama Customer'
+                    label='Name'
+                    placeholder='Customer Name'
                     validation={{}}
                   />
                   <Input
@@ -74,7 +74,7 @@ export default function CreateCustomerPage() {
                   />
                 </div>
                 <Button type='submit' className='mt-3 block w-full'>
-                  Make a Transaction
+                  Create Customer
                 </Button>
               </form>
             </FormProvider>

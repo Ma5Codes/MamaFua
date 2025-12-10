@@ -17,8 +17,8 @@ const PdfGenerator = (data: Transaction) => {
     const doc = new jsPDF();
     const paymentStatus =
       data.datePayment != '' && data.datePayment != undefined
-        ? 'Dibayar Pada: ' + getDateFormatted(data.datePayment)
-        : 'Belum Lunas';
+        ? 'Paid On: ' + getDateFormatted(data.datePayment)
+        : 'Not Paid';
     doc.addImage(LogoBase64, 'JPEG', 10, 5, 20, 20);
     doc.setLineWidth(1);
     doc.line(10, 30, 200, 30);
@@ -32,9 +32,9 @@ const PdfGenerator = (data: Transaction) => {
         [
           {
             content:
-              'Kasir: ' +
+              'Cashier: ' +
               data.cashier +
-              '\nTrees Clean Laundry' +
+              '\nMamaFua' +
               '\nJL. Tombolotutu No 9B' +
               '\n94118',
             styles: {
@@ -51,15 +51,15 @@ const PdfGenerator = (data: Transaction) => {
         [
           {
             content:
-              'N. Referensi: ' +
+              'Reference No: ' +
               data.transactionId +
-              '\nT. Masuk: ' +
+              '\nDate In: ' +
               getDateFormatted(data.dateIn) +
-              '\nT. Selesai: ' +
+              '\nDate Done: ' +
               getDateFormatted(data.dateDone) +
-              '\nT. Diambil: ' +
+              '\nDate Out: ' +
               getDateFormatted(data.dateOut) +
-              '\nNomor Nota: ' +
+              '\nReceipt No: ' +
               data.notaId,
             styles: {
               halign: 'right',
@@ -79,7 +79,7 @@ const PdfGenerator = (data: Transaction) => {
         [
           {
             content:
-              'Kepada Pelanggan:' +
+              'To Customer:' +
               '\n' +
               data.name +
               '\n' +
@@ -97,11 +97,11 @@ const PdfGenerator = (data: Transaction) => {
     });
 
     autoTable(doc, {
-      head: [['Layanan', 'Kategori', 'Berat(Kg)', 'Harga', 'Total']],
+      head: [['Service', 'Category', 'Weight(Kg)', 'Price', 'Total']],
       body: [
         [
           getLabelService(data.service),
-          isServiceExpress(data.service) ? 'Express' : 'Reguler',
+          isServiceExpress(data.service) ? 'Express' : 'Regular',
           data.weight,
           getServicePerPrice(data.service, Number(data.weight))?.toString(),
           data.price,

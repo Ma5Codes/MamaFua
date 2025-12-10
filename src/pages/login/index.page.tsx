@@ -42,7 +42,7 @@ export default function LoginPage() {
       });
     }),
     {
-      success: 'Berhasil masuk',
+      success: 'Successfully logged in',
     },
   );
   // #region Methods

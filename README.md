@@ -116,8 +116,13 @@ const cashierData = [
 ## Development Demo
 
 User available:
-| Email | Password |
-|-----------------|----------|
-| admin@gmail.com | admin123 |
+Use these credentials:
+
+Email: papa@gmail.com
+Password: papa1234
+OR
+
+Email: admin2@gmail.com
+Password: admin1234
 
 [Vercel Demo](https://trees-clean-laundry-fe-git-dev-junaediakbars-projects.vercel.app/?_vercel_share=zxBVAHqXmoiddR9qJv6AoS5eHm4HHwk5)

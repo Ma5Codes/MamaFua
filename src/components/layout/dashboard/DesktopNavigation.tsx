@@ -22,7 +22,7 @@ export default function DesktopNavigation({
       <div className='flex flex-grow flex-col overflow-y-auto border-r border-gray-200 bg-white pt-5 relative'>
         <div className='flex flex-shrink-0 items-center px-4 gap-2'>
           <MdOutlineLocalLaundryService className='text-xl text-blue-500' />
-          <Typography variant='s1'>3 Trees Laundry</Typography>
+          <Typography variant='s1'>MamaFua</Typography>
         </div>
         <div className='mt-5 flex flex-grow flex-col'>
           <nav className='flex-1 space-y-1 pb-4'>
@@ -38,7 +38,7 @@ export default function DesktopNavigation({
               className='text-sm md:text-sm p-2'
               leftIconClassName='text-lg'
             >
-              Bantuan
+              Help
             </TextButton>
             <TextButton
               onClick={logout}

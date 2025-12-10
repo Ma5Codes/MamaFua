@@ -4,8 +4,8 @@ import { useRouter } from 'next/router';
 import { openGraph } from '@/lib/helper';
 
 const defaultMeta = {
-  title: 'Trees Clean Laundry',
-  siteName: 'Trees Clean Laundry',
+  title: 'MamaFua',
+  siteName: 'MamaFua',
   description: 'Design system used on projects',
   /** Without additional '/' on the end, e.g. https://theodorusclarence.com */
   url: 'https://trees-clean-laundry-fe.vercel.app/',

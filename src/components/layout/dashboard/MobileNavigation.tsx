@@ -90,7 +90,7 @@ export default function MobileNavigation({
                   className='text-sm md:text-sm p-2 w-full justify-start'
                   leftIconClassName='text-lg'
                 >
-                  Bantuan
+                  Help
                 </TextButton>
                 <TextButton
                   onClick={logout}

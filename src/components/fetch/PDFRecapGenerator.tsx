@@ -55,7 +55,7 @@ const PdfGenerator = (
             content:
               'Printed by' +
               'Administator' +
-              '\nTrees Clean Laundry' +
+              '\nMamaFua' +
               '\nJL. Tombolotutu No 9B' +
               '\n94118',
             styles: {

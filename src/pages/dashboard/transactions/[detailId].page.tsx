@@ -176,7 +176,7 @@ function EditTransactionPage() {
   const dialog = useDialog();
   const openAlert = (successFn: () => void, rejectFn: () => void) => {
     dialog({
-      title: 'Hapus Transaksi',
+      title: 'Delete Transaction',
       description: 'Anda yakin akan menghapus transaksi ini?',
       submitText: 'Ya',
       variant: 'danger',
@@ -210,12 +210,12 @@ function EditTransactionPage() {
 
   return (
     <DashboardLayout>
-      <Seo templateTitle='Edit Transaksi' />
+      <Seo templateTitle='Edit Transaction' />
       <main>
         <section className=''>
           <div className='layout flex min-h-screen flex-col justify-center '>
             <div className='flex gap-2 items-center'>
-              <Typography variant='h2'>Edit Transaksi</Typography>
+              <Typography variant='h2'>Edit Transaction</Typography>
               <IconButton icon={Edit} variant='ghost' />
             </div>
             <FormProvider {...methods}>
@@ -233,8 +233,8 @@ function EditTransactionPage() {
                     />
                     <SearchableSelectInput
                       id='cashier'
-                      label='Pilih Kasir'
-                      placeholder='Pilih Nama Kasir'
+                      label='Select Cashier'
+                      placeholder='Select Cashier Name'
                       options={[
                         { value: 'dodo', label: 'Dodo' },
                         {
@@ -258,7 +258,7 @@ function EditTransactionPage() {
                       type='password'
                       id='passwordCashier'
                       label='Password'
-                      placeholder='Masukkan Password Kasir'
+                      placeholder='Enter Cashier Password'
                       validation={{}}
                     />
                   </div>
@@ -266,10 +266,10 @@ function EditTransactionPage() {
                   <div className='col-span-2'>
                     <Input
                       id='name'
-                      label='Nama'
-                      placeholder='Nama Pelanggan'
+                      label='Name'
+                      placeholder='Customer Name'
                       validation={{
-                        required: 'Nama harus diisi',
+                        required: 'Name must be filled',
                       }}
                     />
                   </div>
@@ -281,15 +281,15 @@ function EditTransactionPage() {
                   />
                   <Input
                     id='address'
-                    label='Alamat'
+                    label='Address'
                     placeholder='Jl. ....'
                     validation={{}}
                   />
                   <SearchableSelectInput
                     id='service'
                     type='text'
-                    label='Pilih Layanan'
-                    placeholder='Pilih Layanan'
+                    label='Select Service'
+                    placeholder='Select Service'
                     options={services.map(
                       (v: { name: string; value: string }) => ({
                         value: v.name,
@@ -301,40 +301,40 @@ function EditTransactionPage() {
 
                   <Input
                     id='perprice'
-                    label='Harga/kg'
-                    placeholder='Harga Persatuan(kg)'
+                    label='Price/kg'
+                    placeholder='Price Per Unit(kg)'
                     validation={{}}
                   />
 
                   <Input
                     id='weight'
-                    label='Berat(kg)'
-                    placeholder='Berat Pakaian(kg)'
+                    label='Weight(kg)'
+                    placeholder='Clothes Weight(kg)'
                     validation={{
                       pattern: {
                         value: REGEX.NUMBER_AND_DECIMAL,
-                        message: 'Berat harus dalam angka/desimal',
+                        message: 'Weight must be a number/decimal',
                       },
-                      required: 'Berat harus diisi',
+                      required: 'Weight must be filled',
                     }}
                   />
 
                   <Input
                     id='price'
-                    label='Harga Total'
-                    placeholder='Harga Total'
+                    label='Total Price'
+                    placeholder='Total Price'
                     validation={{}}
                   />
 
                   <DatePicker
                     showTimeSelect={true}
                     id='dateIn'
-                    label='Tanggal Masuk'
+                    label='Date In'
                     placeholder='dd/MM/yyyy HH:mm'
                     defaultYear={2024}
                     dateFormat='dd/MM/yyyy HH:mm'
                     validation={{
-                      required: 'Tanggal Masuk harus diisi',
+                      required: 'Date In must be filled',
                       valueAsDate: true,
                     }}
                   />
@@ -342,19 +342,19 @@ function EditTransactionPage() {
                   <DatePicker
                     showTimeSelect={true}
                     id='dateDone'
-                    label='Tanggal Perkiraan Selesai'
+                    label='Estimated Completion Date'
                     placeholder='dd/MM/yyyy HH:mm'
                     defaultYear={2024}
                     dateFormat='dd/MM/yyyy HH:mm'
                     validation={{
-                      required: 'Tanggal Perkiraan Selesai harus diisi',
+                      required: 'Estimated Completion Date must be filled',
                       valueAsDate: true,
                     }}
                   />
                   <SearchableSelectInput
                     id='status'
-                    label='Status Pembayaran'
-                    placeholder='Status Pembayarann'
+                    label='Payment Status'
+                    placeholder='Payment Status'
                     options={[
                       {
                         value: 'lunas',
@@ -374,7 +374,7 @@ function EditTransactionPage() {
                   <DatePicker
                     showTimeSelect={true}
                     id='datePayment'
-                    label='Tanggal Pembayaran'
+                    label='Payment Date'
                     placeholder='dd/MM/yyyy HH:mm'
                     defaultYear={2024}
                     locale='id'
@@ -383,8 +383,8 @@ function EditTransactionPage() {
                   />
                   <SearchableSelectInput
                     id='statusTaken'
-                    label='Status Pengambilan'
-                    placeholder='Status Pengambilan'
+                    label='Pickup Status'
+                    placeholder='Pickup Status'
                     options={[
                       {
                         value: 'diambil',
@@ -400,7 +400,7 @@ function EditTransactionPage() {
                   <DatePicker
                     showTimeSelect={true}
                     id='dateOut'
-                    label='Tanggal Pengambilan'
+                    label='Pickup Date'
                     placeholder='dd/MM/yyyy HH:mm'
                     defaultYear={2024}
                     locale='id'
@@ -410,8 +410,8 @@ function EditTransactionPage() {
 
                   <Input
                     id='amountPayment'
-                    label='Total yang telah dibayar'
-                    placeholder='Total yang sudah dibayar'
+                    label='Total Amount Paid'
+                    placeholder='Total Amount Paid'
                     validation={{}}
                   />
                   <div className='col-span-2 mb-3'>
@@ -453,7 +453,7 @@ function EditTransactionPage() {
                   </div>
                 </div>
                 <Button type='submit' className='mt-8 block w-full'>
-                  Simpan Data
+                  Save Data
                 </Button>
               </form>
             </FormProvider>

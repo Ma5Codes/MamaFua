@@ -34,7 +34,7 @@ function TransactionsPage() {
       },
       {
         accessorKey: 'name',
-        header: 'Nama',
+        header: 'Name',
       },
 
       {
@@ -70,7 +70,7 @@ function TransactionsPage() {
       },
       {
         accessorKey: 'dateIn',
-        header: 'Tanggal Masuk',
+        header: 'Date In',
         cell: (props) => {
           const date = new Date(props.getValue() as string);
           return date.toLocaleDateString('id-ID', {
@@ -99,10 +99,10 @@ function TransactionsPage() {
       },
       {
         accessorKey: 'dateOut',
-        header: 'Tanggal Keluar',
+        header: 'Date Out',
         cell: (props) => {
           const date = new Date(props.getValue() as string);
-          if (!date || props.getValue() == null) return 'Belum Diambil';
+          if (!date || props.getValue() == null) return 'Not Picked Up';
           return date.toLocaleDateString('id-ID', {
             day: '2-digit',
             month: 'long',
@@ -114,7 +114,7 @@ function TransactionsPage() {
       },
       {
         accessorKey: 'status',
-        header: 'Status Pembayaran',
+        header: 'Payment Status',
         cell: (props) => (
           <Tag
             color={
@@ -179,7 +179,7 @@ function TransactionsPage() {
         <section>
           <div className='mt-2 space-y-4 px-10'>
             <div className='flex gap-2 items-center'>
-              <Typography variant='h2'>Data Transaksi</Typography>
+              <Typography variant='h2'>Transaction Data</Typography>
               <IconButton
                 onClick={() => router.replace('/dashboard/transactions/create')}
                 size='sm'
