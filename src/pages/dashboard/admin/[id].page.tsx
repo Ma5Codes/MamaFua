@@ -73,14 +73,14 @@ export default function CreateCustomerPage() {
                 <div className='space-y-3 md:space-y-0 md:grid  md:gap-y-3 md:gap-x-8 mb-10'>
                   <Input
                     id='name'
-                    label='Nama'
-                    placeholder='Nama Customer'
+                    label='Name'
+                    placeholder='Customer Name'
                     validation={{}}
                   />
                   <Input
                     id='noTelp'
-                    label='No. Telepon'
-                    placeholder='No. Telepon'
+                    label='No. Telephone'
+                    placeholder='No. Telephone'
                     validation={{}}
                   />
 

@@ -1,127 +1,127 @@
 export const services = [
   {
-    name: 'cuci-lipat',
-    value: 'Cuci Lipat',
+    name: 'wash-fold',
+    value: 'Wash & Fold',
     price: 6000,
   },
   {
-    name: 'cuci-lipat-bayi',
-    value: 'Cuci Lipat Bj Bayi',
+    name: 'wash-fold-baby',
+    value: 'Wash & Fold Baby Clothes',
     price: 9000,
   },
   {
-    name: 'cuci-lipat-anak',
-    value: 'Cuci Lipat Bj Anak',
+    name: 'wash-fold-kids',
+    value: 'Wash & Fold Kids Clothes',
     price: 7000,
   },
   {
-    name: 'cuci-komplit',
-    value: 'Cuci Komplit',
+    name: 'full-wash',
+    value: 'Full Wash Service',
     price: 9000,
   },
   {
-    name: 'cuci-komplit-bayi',
-    value: 'Cuci Komplit Bj Bayi',
+    name: 'full-wash-baby',
+    value: 'Full Wash Baby Clothes',
     price: 11000,
   },
   {
-    name: 'lipat-saja',
-    value: 'Lipat Saja',
+    name: 'fold-only',
+    value: 'Fold Only',
     price: 3000,
   },
   {
-    name: 'kering-saja',
-    value: 'Kering Saja',
+    name: 'dry-only',
+    value: 'Dry Only',
     price: 10000,
   },
   {
-    name: 'setrika',
-    value: 'Setrika',
+    name: 'ironing',
+    value: 'Ironing',
     price: 5000,
   },
   {
-    name: 'kering-saja-6kg',
-    value: 'Kering Saja 6kg',
+    name: 'dry-only-6kg',
+    value: 'Dry Only 6kg',
     price: 10000,
   },
   {
-    name: 'kering-saja-10kg',
-    value: 'Kering Saja 10kg',
+    name: 'dry-only-10kg',
+    value: 'Dry Only 10kg',
     price: 15000,
   },
   {
-    name: 'sprei-no-3-4',
-    value: 'Sprei No 3 & 4',
+    name: 'bedsheet-no-3-4',
+    value: 'Bedsheet No. 3 & 4',
     price: 12000,
   },
   {
-    name: 'sprei-no-2',
-    value: 'Sprei No. 2',
+    name: 'bedsheet-no-2',
+    value: 'Bedsheet No. 2',
     price: 16000,
   },
   {
-    name: 'sprei-no-1',
-    value: 'Sprei No. 1',
+    name: 'bedsheet-no-1',
+    value: 'Bedsheet No. 1',
     price: 20000,
   },
   {
-    name: 'karpet-type-1',
-    value: 'Karpet Type 1',
+    name: 'carpet-type-1',
+    value: 'Carpet Type 1',
     price: 22000,
   },
   {
-    name: 'karpet-type-2',
-    value: 'Karpet Type 2',
+    name: 'carpet-type-2',
+    value: 'Carpet Type 2',
     price: 17500,
   },
   {
-    name: 'cuci-lipat-express',
-    value: 'Cuci Lipat Express',
+    name: 'wash-fold-express',
+    value: 'Wash & Fold Express',
     price: 9000,
   },
   {
-    name: 'cuci-lipat-bayi-express',
-    value: 'Cuci Lipat Bj Bayi Express',
+    name: 'wash-fold-baby-express',
+    value: 'Wash & Fold Baby Clothes Express',
     price: 14000,
   },
   {
-    name: 'cuci-lipat-anak-express',
-    value: 'Cuci Lipat Bj Anak Express',
+    name: 'wash-fold-kids-express',
+    value: 'Wash & Fold Kids Clothes Express',
     price: 12000,
   },
   {
-    name: 'cuci-komplit-express',
-    value: 'Cuci Komplit Express',
+    name: 'full-wash-express',
+    value: 'Full Wash Service Express',
     price: 14000,
   },
   {
-    name: 'cuci-komplit-bayi-express',
-    value: 'Cuci Komplit Bj Bayi Express',
+    name: 'full-wash-baby-express',
+    value: 'Full Wash Baby Clothes Express',
     price: 17000,
   },
   {
-    name: 'lipat-saja-express',
-    value: 'Lipat Saja Express',
+    name: 'fold-only-express',
+    value: 'Fold Only Express',
     price: 5000,
   },
   {
-    name: 'sprei-no-3-4-express',
-    value: 'Sprei No 3 & 4 Express',
+    name: 'bedsheet-no-3-4-express',
+    value: 'Bedsheet No. 3 & 4 Express',
     price: 18000,
   },
   {
-    name: 'sprei-no-2-express',
-    value: 'Sprei No. 2 Express',
+    name: 'bedsheet-no-2-express',
+    value: 'Bedsheet No. 2 Express',
     price: 24000,
   },
   {
-    name: 'sprei-no-1-express',
-    value: 'Sprei No. 1 Express',
+    name: 'bedsheet-no-1-express',
+    value: 'Bedsheet No. 1 Express',
     price: 30000,
   },
   {
-    name: 'lainnya',
-    value: 'Lainnya',
+    name: 'others',
+    value: 'Others',
     price: 0,
   },
 ];
@@ -139,48 +139,48 @@ export const getServicePerPrice = (
     }
 
     if (
-      selectedService === 'kering-saja' ||
-      selectedService === 'kering-saja-6kg' ||
-      selectedService === 'kering-saja-10kg'
+      selectedService === 'dry-only' ||
+      selectedService === 'dry-only-6kg' ||
+      selectedService === 'dry-only-10kg'
     ) {
       if (weight <= 6) return 10000;
       if (weight <= 10) return 15000;
       return Math.ceil(weight / 10) * 15000;
     }
 
-    if (selectedService === 'cuci-lipat') {
+    if (selectedService === 'wash-fold') {
       if (weight < 3) return Math.floor((6000 * 3) / weight);
       return 6000;
     }
-    if (selectedService === 'setrika') {
+    if (selectedService === 'ironing') {
       if (weight < 3) return Math.floor((5000 * 3) / weight);
       return 5000;
     }
-    if (selectedService === 'cuci-lipat-bayi') {
+    if (selectedService === 'wash-fold-baby') {
       if (weight < 3) return Math.floor((9000 * 3) / weight);
       return 9000;
     }
-    if (selectedService === 'cuci-lipat-anak') {
+    if (selectedService === 'wash-fold-kids') {
       if (weight < 3) return Math.floor((7000 * 3) / weight);
       return 7000;
     }
-    if (selectedService === 'cuci-komplit') {
+    if (selectedService === 'full-wash') {
       if (weight < 3) return Math.floor((9000 * 3) / weight);
       return 9000;
     }
-    if (selectedService === 'cuci-komplit-bayi') {
+    if (selectedService === 'full-wash-baby') {
       if (weight < 3) return Math.floor((11000 * 3) / weight);
       return 11000;
     }
-    if (selectedService === 'lipat-saja') {
+    if (selectedService === 'fold-only') {
       if (weight < 3) return Math.floor((3000 * 3) / weight);
       return 3000;
     }
-    if (selectedService === 'cuci-lipat-express') {
+    if (selectedService === 'wash-fold-express') {
       if (weight < 3) return Math.floor(27000 / weight);
       return Math.floor((27000 + (weight - 3) * 9000) / weight);
     }
-    if (selectedService === 'cuci-komplit-express') {
+    if (selectedService === 'full-wash-express') {
       if (weight < 3) return Math.floor(42000 / weight);
       return Math.floor((42000 + (weight - 3) * 14000) / weight);
     }
@@ -198,52 +198,52 @@ export const getServiceTotalPrice = (
     return defaultTotalPrice;
   } else {
     if (
-      selectedService === 'kering-saja' ||
-      selectedService === 'kering-saja-6kg' ||
-      selectedService === 'kering-saja-10kg'
+      selectedService === 'dry-only' ||
+      selectedService === 'dry-only-6kg' ||
+      selectedService === 'dry-only-10kg'
     ) {
       if (weight <= 6) return 10000;
       if (weight <= 10) return 15000;
       return Math.ceil(weight / 10) * 15000;
     }
 
-    if (selectedService === 'lainnya') {
+    if (selectedService === 'others') {
       const perprice = customPerPrice ? customPerPrice : 0;
       return weight * perprice;
     }
-    if (selectedService === 'setrika') {
+    if (selectedService === 'ironing') {
       if (weight < 3) return 3 * 5000;
       return weight * 5000;
     }
-    if (selectedService === 'cuci-lipat') {
+    if (selectedService === 'wash-fold') {
       if (weight < 3) return 3 * 6000;
       return weight * 6000;
     }
-    if (selectedService === 'cuci-lipat-bayi') {
+    if (selectedService === 'wash-fold-baby') {
       if (weight < 3) return 3 * 9000;
       return weight * 9000;
     }
-    if (selectedService === 'cuci-lipat-anak') {
+    if (selectedService === 'wash-fold-kids') {
       if (weight < 3) return 3 * 7000;
       return weight * 7000;
     }
-    if (selectedService === 'cuci-komplit') {
+    if (selectedService === 'full-wash') {
       if (weight < 3) return 3 * 9000;
       return weight * 9000;
     }
-    if (selectedService === 'cuci-komplit-bayi') {
+    if (selectedService === 'full-wash-baby') {
       if (weight < 3) return 3 * 11000;
       return weight * 11000;
     }
-    if (selectedService === 'lipat-saja') {
+    if (selectedService === 'fold-only') {
       if (weight < 3) return 3 * 3000;
       return weight * 3000;
     }
-    if (selectedService === 'cuci-lipat-express') {
+    if (selectedService === 'wash-fold-express') {
       if (weight < 3) return 27000;
       return Math.floor(27000 + (weight - 3) * 9000);
     }
-    if (selectedService === 'cuci-komplit-express') {
+    if (selectedService === 'full-wash-express') {
       if (weight < 3) return 42000;
       return Math.floor(42000 + (weight - 3) * 14000);
     }
@@ -252,64 +252,67 @@ export const getServiceTotalPrice = (
 };
 
 export const getServiceBasicPrice = (selectedService: string) => {
-  if (selectedService === 'cuci-lipat') return 6000;
-  if (selectedService === 'cuci-lipat-bayi') return 9000;
-  if (selectedService === 'cuci-lipat-anak') return 7000;
-  if (selectedService === 'cuci-komplit') return 9000;
-  if (selectedService === 'cuci-komplit-bayi') return 11000;
-  if (selectedService === 'lipat-saja') return 3000;
-  if (selectedService === 'setrika') return 5000;
-  if (selectedService === 'kering-saja') return 10000;
-  if (selectedService === 'kering-saja-6kg') return 10000;
-  if (selectedService === 'kering-saja-10kg') return 15000;
-  if (selectedService === 'sprei-no-3-4') return 12000;
-  if (selectedService === 'sprei-no-2') return 16000;
-  if (selectedService === 'sprei-no-1') return 20000;
-  if (selectedService === 'karpet-type-1') return 22000;
-  if (selectedService === 'karpet-type-2') return 17500;
-  if (selectedService === 'cuci-lipat-express') return 9000;
-  if (selectedService === 'cuci-lipat-bayi-express') return 14000;
-  if (selectedService === 'cuci-lipat-anak-express') return 12000;
-  if (selectedService === 'cuci-komplit-express') return 14000;
-  if (selectedService === 'cuci-komplit-bayi-express') return 17000;
-  if (selectedService === 'lipat-saja-express') return 5000;
-  if (selectedService === 'sprei-no-3-4-express') return 18000;
-  if (selectedService === 'sprei-no-2-express') return 24000;
-  if (selectedService === 'sprei-no-1-express') return 30000;
-  if (selectedService === 'lainnya') return 0;
+  if (selectedService === 'wash-fold') return 6000;
+  if (selectedService === 'wash-fold-baby') return 9000;
+  if (selectedService === 'wash-fold-kids') return 7000;
+  if (selectedService === 'full-wash') return 9000;
+  if (selectedService === 'full-wash-baby') return 11000;
+  if (selectedService === 'fold-only') return 3000;
+  if (selectedService === 'ironing') return 5000;
+  if (selectedService === 'dry-only') return 10000;
+  if (selectedService === 'dry-only-6kg') return 10000;
+  if (selectedService === 'dry-only-10kg') return 15000;
+  if (selectedService === 'bedsheet-no-3-4') return 12000;
+  if (selectedService === 'bedsheet-no-2') return 16000;
+  if (selectedService === 'bedsheet-no-1') return 20000;
+  if (selectedService === 'carpet-type-1') return 22000;
+  if (selectedService === 'carpet-type-2') return 17500;
+  if (selectedService === 'wash-fold-express') return 9000;
+  if (selectedService === 'wash-fold-baby-express') return 14000;
+  if (selectedService === 'wash-fold-kids-express') return 12000;
+  if (selectedService === 'full-wash-express') return 14000;
+  if (selectedService === 'full-wash-baby-express') return 17000;
+  if (selectedService === 'fold-only-express') return 5000;
+  if (selectedService === 'bedsheet-no-3-4-express') return 18000;
+  if (selectedService === 'bedsheet-no-2-express') return 24000;
+  if (selectedService === 'bedsheet-no-1-express') return 30000;
+  if (selectedService === 'others') return 0;
   return 0;
 };
 
 export const getLabelService = (selectedService: string) => {
-  if (selectedService === 'cuci-lipat') return 'Cuci Lipat';
-  if (selectedService === 'cuci-lipat-bayi') return 'Cuci Lipat Bj Bayi';
-  if (selectedService === 'cuci-lipat-anak') return 'Cuci Lipat Bj Anak';
-  if (selectedService === 'cuci-komplit') return 'Cuci Komplit';
-  if (selectedService === 'cuci-komplit-bayi') return 'Cuci Komplit Bj Bayi';
-  if (selectedService === 'lipat-saja') return 'Lipat Saja';
-  if (selectedService === 'setrika') return 'Setrika';
-  if (selectedService === 'kering-saja') return 'Kering Saja';
-  if (selectedService === 'kering-saja-6kg') return 'Kering Saja 6kg';
-  if (selectedService === 'kering-saja-10kg') return 'Kering Saja 10kg';
-  if (selectedService === 'sprei-no-3-4') return 'Sprei No 3 & 4';
-  if (selectedService === 'sprei-no-2') return 'Sprei No. 2';
-  if (selectedService === 'sprei-no-1') return 'Sprei No. 1';
-  if (selectedService === 'karpet-type-1') return 'Karpet Type 1';
-  if (selectedService === 'karpet-type-2') return 'Karpet Type 2';
-  if (selectedService === 'cuci-lipat-express') return 'Cuci Lipat Express';
-  if (selectedService === 'cuci-lipat-bayi-express')
-    return 'Cuci Lipat Bj Bayi Express';
-  if (selectedService === 'cuci-lipat-anak-express')
-    return 'Cuci Lipat Bj Anak Express';
-  if (selectedService === 'cuci-komplit-express') return 'Cuci Komplit Express';
-  if (selectedService === 'cuci-komplit-bayi-express')
-    return 'Cuci Komplit Bj Bayi Express';
-  if (selectedService === 'lipat-saja-express') return 'Lipat Saja Express';
-  if (selectedService === 'sprei-no-3-4-express')
-    return 'Sprei No 3 & 4 Express';
-  if (selectedService === 'sprei-no-2-express') return 'Sprei No. 2 Express';
-  if (selectedService === 'sprei-no-1-express') return 'Sprei No. 1 Express';
-  if (selectedService === 'lainnya') return 'Lainnya';
+  if (selectedService === 'wash-fold') return 'Wash & Fold';
+  if (selectedService === 'wash-fold-baby') return 'Wash & Fold Baby Clothes';
+  if (selectedService === 'wash-fold-kids') return 'Wash & Fold Kids Clothes';
+  if (selectedService === 'full-wash') return 'Full Wash Service';
+  if (selectedService === 'full-wash-baby') return 'Full Wash Baby Clothes';
+  if (selectedService === 'fold-only') return 'Fold Only';
+  if (selectedService === 'ironing') return 'Ironing';
+  if (selectedService === 'dry-only') return 'Dry Only';
+  if (selectedService === 'dry-only-6kg') return 'Dry Only 6kg';
+  if (selectedService === 'dry-only-10kg') return 'Dry Only 10kg';
+  if (selectedService === 'bedsheet-no-3-4') return 'Bedsheet No. 3 & 4';
+  if (selectedService === 'bedsheet-no-2') return 'Bedsheet No. 2';
+  if (selectedService === 'bedsheet-no-1') return 'Bedsheet No. 1';
+  if (selectedService === 'carpet-type-1') return 'Carpet Type 1';
+  if (selectedService === 'carpet-type-2') return 'Carpet Type 2';
+  if (selectedService === 'wash-fold-express') return 'Wash & Fold Express';
+  if (selectedService === 'wash-fold-baby-express')
+    return 'Wash & Fold Baby Clothes Express';
+  if (selectedService === 'wash-fold-kids-express')
+    return 'Wash & Fold Kids Clothes Express';
+  if (selectedService === 'full-wash-express')
+    return 'Full Wash Service Express';
+  if (selectedService === 'full-wash-baby-express')
+    return 'Full Wash Baby Clothes Express';
+  if (selectedService === 'fold-only-express') return 'Fold Only Express';
+  if (selectedService === 'bedsheet-no-3-4-express')
+    return 'Bedsheet No. 3 & 4 Express';
+  if (selectedService === 'bedsheet-no-2-express')
+    return 'Bedsheet No. 2 Express';
+  if (selectedService === 'bedsheet-no-1-express')
+    return 'Bedsheet No. 1 Express';
+  if (selectedService === 'others') return 'Others';
   return '';
 };
 

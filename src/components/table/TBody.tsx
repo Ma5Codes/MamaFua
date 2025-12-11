@@ -40,7 +40,7 @@ export default function TBody<T extends RowData>({
             colSpan={table.getAllColumns().length}
             className='whitespace-nowrap px-6 py-4 text-center text-sm text-gray-700'
           >
-            <span>Data tidak ditemukan</span>
+            <span>Data not found</span>
           </td>
         </tr>
       ) : (

@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { id } from 'date-fns/locale';
+import { enUS } from 'date-fns/locale';
 import { DownloadIcon, Edit, Trash2 } from 'lucide-react';
 import moment from 'moment';
 import { useRouter } from 'next/router';
@@ -35,7 +35,7 @@ import {
 import { checkPassword } from '@/constant/users';
 
 import { ApiResponse, Transaction } from '@/types/api';
-registerLocale('id', id);
+registerLocale('en-US', enUS);
 
 export default WithAuth(EditTransactionPage, ['admin']);
 function EditTransactionPage() {
@@ -61,6 +61,17 @@ function EditTransactionPage() {
   }
 
   const [passwordCashier, setPasswordCashier] = useState('');
+
+  // Get password hint for selected cashier
+  const getPasswordHint = (cashierName: string) => {
+    const hints: { [key: string]: string } = {
+      'dodo': 'Password: Dodo123',
+      'ayu': 'Password: Ayu123',
+      'papa': 'Password: Papa123',
+      'nisa': 'Password: Nisa123',
+    };
+    return hints[cashierName] || '';
+  };
 
   //Watch ALl Records Transaction
   const service = methods.watch('service');
@@ -120,8 +131,8 @@ function EditTransactionPage() {
     const date = moment();
     const getDateNowFormatted = date.toISOString() as string;
 
-    if (status === 'lunas' || status === 'bayar-sebagian') {
-      if (status === 'lunas') {
+    if (status === 'Paid' || status === 'bayar-sebagian') {
+      if (status === 'Paid') {
         methods.setValue('amountPayment', price);
       }
       methods.setValue(
@@ -188,7 +199,7 @@ function EditTransactionPage() {
 
   const deleteTransaction = () => {
     if (!checkPassword(cashier, passwordCashier)) {
-      toast.error('Password salah');
+      toast.error('Wrong password');
       return;
     }
     openAlert(
@@ -227,7 +238,7 @@ function EditTransactionPage() {
                   <div className='space-y-2 md:space-y-0 md:grid md:grid-cols-3 md:col-span-2 gap-4'>
                     <Input
                       id='notaId'
-                      label='No. Nota'
+                      label='No. Note'
                       placeholder='Nomor Nota'
                       validation={{}}
                     />
@@ -261,6 +272,11 @@ function EditTransactionPage() {
                       placeholder='Enter Cashier Password'
                       validation={{}}
                     />
+                    {cashier && (
+                      <p className='mt-1 text-xs text-gray-500'>
+                        💡 {getPasswordHint(cashier)}
+                      </p>
+                    )}
                   </div>
 
                   <div className='col-span-2'>
@@ -357,16 +373,16 @@ function EditTransactionPage() {
                     placeholder='Payment Status'
                     options={[
                       {
-                        value: 'lunas',
-                        label: 'Lunas',
+                        value: 'Paid',
+                        label: 'Paid',
                       },
                       {
                         value: 'belum-bayar',
-                        label: 'Belum Bayar',
+                        label: 'Unpaid',
                       },
                       {
                         value: 'bayar-sebagian',
-                        label: 'Bayar Sebagian',
+                        label: 'Partially Paid',
                       },
                     ]}
                     validation={{ required: 'Select Input must be filled' }}
@@ -377,7 +393,7 @@ function EditTransactionPage() {
                     label='Payment Date'
                     placeholder='dd/MM/yyyy HH:mm'
                     defaultYear={2024}
-                    locale='id'
+                    locale='en-US'
                     dateFormat='dd/MM/yyyy HH:mm'
                     validation={{}}
                   />
@@ -403,7 +419,7 @@ function EditTransactionPage() {
                     label='Pickup Date'
                     placeholder='dd/MM/yyyy HH:mm'
                     defaultYear={2024}
-                    locale='id'
+                    locale='en-US'
                     dateFormat='dd/MM/yyyy HH:mm'
                     validation={{}}
                   />

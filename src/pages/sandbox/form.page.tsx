@@ -94,7 +94,7 @@ export default function FormSandbox() {
                 validation={{ required: 'Price must be filled' }}
                 placeholder='Enter your price'
                 helperText='This is a helper text'
-                leftIcon='Rp'
+                leftIcon='KSh'
               />
               <PasswordInput
                 id='password'

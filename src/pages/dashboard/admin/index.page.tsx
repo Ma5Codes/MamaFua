@@ -50,7 +50,7 @@ function DashboardAdminPage() {
     },
     {
       id: 'address',
-      header: 'Alamat',
+      header: 'Address',
       accessorKey: 'address',
       size: 120,
       minSize: 140,

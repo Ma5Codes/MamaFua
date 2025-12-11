@@ -1,7 +1,7 @@
 import { Menu, Transition } from '@headlessui/react';
 import clsx from 'clsx';
 import { format } from 'date-fns';
-import { id } from 'date-fns/locale';
+import { enUS } from 'date-fns/locale';
 import Image from 'next/image';
 import * as React from 'react';
 import { HiOutlineMenuAlt2 } from 'react-icons/hi';
@@ -38,7 +38,7 @@ export default function Header({ setSidebarOpen }: HeaderProps) {
                 className='text-base-dark text-mid md:!text-base'
               >
                 {format(new Date(), 'PPPP', {
-                  locale: id,
+                  locale: enUS,
                 })}
               </Typography>
             </div>

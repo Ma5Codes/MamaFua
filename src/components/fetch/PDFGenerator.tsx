@@ -35,7 +35,7 @@ const PdfGenerator = (data: Transaction) => {
               'Cashier: ' +
               data.cashier +
               '\nMamaFua' +
-              '\nJL. Tombolotutu No 9B' +
+              '\n Kiharu, Muranga, Kenya' +
               '\n94118',
             styles: {
               halign: 'left',
@@ -86,7 +86,7 @@ const PdfGenerator = (data: Transaction) => {
               data.address +
               '\n' +
               data.noTelp +
-              '\nIndonesia',
+              '\nKenya',
             styles: {
               halign: 'left',
             },
@@ -117,7 +117,7 @@ const PdfGenerator = (data: Transaction) => {
       body: [
         [
           {
-            content: 'Total Harga',
+            content: 'Total Price',
             styles: {
               halign: 'right',
               fontSize: 11,
@@ -178,7 +178,7 @@ const PdfGenerator = (data: Transaction) => {
         ],
         [
           {
-            content: 'Total Harga:',
+            content: 'Total Price:',
             styles: {
               halign: 'right',
             },
@@ -208,11 +208,11 @@ const PdfGenerator = (data: Transaction) => {
         [
           {
             content:
-              'Nota ini dibuat berdasarkan nota fisik yang telah diterima oleh pembeli' +
+              'This invoice is based on the physical invoice received by the buyer.' +
               '\n' +
-              'Harap mencocokkan kembali.' +
+              'Please check again.' +
               '\n' +
-              'No.Telp: 0852-9840-0700',
+              'No.Telp: 0714-599-143',
             styles: {
               halign: 'left',
             },
@@ -226,7 +226,7 @@ const PdfGenerator = (data: Transaction) => {
       body: [
         [
           {
-            content: '------ Terima Kasih ------',
+            content: '------ Thank You ------',
             styles: {
               halign: 'center',
             },

@@ -39,11 +39,11 @@ function TransactionsPage() {
 
       {
         accessorKey: 'notaId',
-        header: 'No. Nota',
+        header: 'No. Note',
       },
       {
         accessorKey: 'service',
-        header: 'Layanan',
+        header: 'Service',
         cell: (props) => {
           const service = props.getValue() as string;
           return <Tag color='secondary'>{getLabelService(service)}</Tag>;
@@ -51,7 +51,7 @@ function TransactionsPage() {
       },
       {
         accessorKey: 'weight',
-        header: 'Berat(kg)',
+        header: 'Weight(kg)',
         cell: (props) => {
           const weight = props.getValue() as string;
           return `${weight}`;
@@ -59,12 +59,12 @@ function TransactionsPage() {
       },
       {
         accessorKey: 'price',
-        header: 'harga',
+        header: 'Price',
         cell: (props) => {
           const price = props.getValue() as string;
-          return new Intl.NumberFormat('id-ID', {
+          return new Intl.NumberFormat('en-KE', {
             style: 'currency',
-            currency: 'IDR',
+            currency: 'KES',
           }).format(Number(price));
         },
       },
@@ -85,7 +85,7 @@ function TransactionsPage() {
 
       {
         accessorKey: 'dateDone',
-        header: 'Tanggal Selesai',
+        header: 'Completion Date',
         cell: (props) => {
           const date = new Date(props.getValue() as string);
           return date.toLocaleDateString('id-ID', {
@@ -118,9 +118,9 @@ function TransactionsPage() {
         cell: (props) => (
           <Tag
             color={
-              (props.getValue() as string) === 'lunas'
+              (props.getValue() as string) === 'Paid'
                 ? 'success'
-                : (props.getValue() as string) === 'belum-bayar'
+                : (props.getValue() as string) === 'Not yet paid'
                   ? 'danger'
                   : 'primary'
             }

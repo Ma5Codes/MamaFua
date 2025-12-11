@@ -22,11 +22,6 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/dashboard/admin": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/dashboard/admin.js"
-    ],
     "/dashboard/transactions": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",

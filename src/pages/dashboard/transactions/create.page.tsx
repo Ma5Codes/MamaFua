@@ -1,4 +1,4 @@
-import moment from 'moment';
+import moment from 'moment'; 
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
@@ -67,11 +67,11 @@ export default function CreateTransactionPage() {
   const price = methods.watch('price');
 
   useEffect(() => {
-    if (status === 'lunas') {
+    if (status === 'Paid') {
       methods.setValue('datePayment', getDateNowFormatted);
       methods.setValue('amountPayment', price);
     }
-    if (status === 'belum-bayar') {
+    if (status === 'unpaid') {
       methods.setValue('amountPayment', '0');
       methods.setValue('datePayment', '');
     } else {
@@ -80,7 +80,7 @@ export default function CreateTransactionPage() {
   }, [status, methods, price, getDateNowFormatted]);
 
   useEffect(() => {
-    if (service != 'lainnya') {
+    if (service != 'other') {
       methods.setValue(
         'price',
         getServiceTotalPrice(
@@ -122,6 +122,17 @@ export default function CreateTransactionPage() {
 
   const [passwordCashier, setPasswordCashier] = useState('');
 
+  // Get password hint for selected cashier
+  const getPasswordHint = (cashierName: string) => {
+    const hints: { [key: string]: string } = {
+      'dodo': 'Password: Dodo123',
+      'ayu': 'Password: Ayu123',
+      'papa': 'Password: Papa123',
+      'nisa': 'Password: Nisa123',
+    };
+    return hints[cashierName] || '';
+  };
+
   const nameCustomer = methods2.watch('name');
 
   const getCustomer = async (id: string) => {
@@ -157,7 +168,6 @@ export default function CreateTransactionPage() {
   }, [nameCustomer, methods]);
 
   const { handleSubmit } = methods;
-  //#endregion  //*======== Form ===========
 
   const onSubmitForm: SubmitHandler<TransactionData> = (data) => {
     if (!checkPassword(author, passwordCashier)) {
@@ -193,8 +203,8 @@ export default function CreateTransactionPage() {
                   valueGetter='name'
                   id='name'
                   route='/customer?limit=500'
-                  label='Pilih Customer'
-                  placeholder='Pilih Customer'
+                  label='Select Customer'
+                  placeholder='Select Customer'
                 />
               </form>
             </FormProvider>
@@ -209,8 +219,8 @@ export default function CreateTransactionPage() {
                     <Input
                       disabled={notaIsDisabed}
                       id='notaId'
-                      label='No. Nota'
-                      placeholder='Nomor Nota'
+                      label='Note Number'
+                      placeholder='Note Number'
                       validation={{}}
                     />
                     <SearchableSelectInput
@@ -219,18 +229,9 @@ export default function CreateTransactionPage() {
                       placeholder='Select Cashier Name'
                       options={[
                         { value: 'dodo', label: 'Dodo' },
-                        {
-                          value: 'ayu',
-                          label: 'Ayu',
-                        },
-                        {
-                          value: 'nisa',
-                          label: 'Nisa',
-                        },
-                        {
-                          value: 'papa',
-                          label: 'Papa',
-                        },
+                        { value: 'ayu', label: 'Ayu' },
+                        { value: 'nisa', label: 'Nisa' },
+                        { value: 'papa', label: 'Papa' },
                       ]}
                       validation={{ required: 'Select Input must be filled' }}
                     />
@@ -243,6 +244,11 @@ export default function CreateTransactionPage() {
                       placeholder='Enter Cashier Password'
                       validation={{}}
                     />
+                    {author && (
+                      <p className='mt-1 text-xs text-gray-500'>
+                        💡 {getPasswordHint(author)}
+                      </p>
+                    )}
                   </div>
 
                   <div className='col-span-2'>
@@ -255,23 +261,26 @@ export default function CreateTransactionPage() {
                       }}
                     />
                   </div>
+
                   <Input
                     id='noTelp'
-                    label='No. Telp'
-                    placeholder='Nomor Telepon'
+                    label='Phone Number'
+                    placeholder='Phone Number'
                     validation={{}}
                   />
+
                   <Input
                     id='address'
                     label='Address'
                     placeholder='Customer Address'
                     validation={{}}
                   />
+
                   <SearchableSelectInput
                     id='service'
                     type='text'
-                    label='Pilih Layanan'
-                    placeholder='Pilih Layanan'
+                    label='Select Service'
+                    placeholder='Select Service'
                     options={services.map(
                       (v: { name: string; value: string }) => ({
                         value: v.name,
@@ -282,34 +291,30 @@ export default function CreateTransactionPage() {
                   />
 
                   <Input
-                    disabled={
-                      (service as unknown as string) === 'lainnya'
-                        ? false
-                        : true
-                    }
+                    disabled={(service as unknown as string) === 'other' ? false : true}
                     id='perprice'
-                    label='Harga/kg'
-                    placeholder='Harga Persatuan(kg)'
+                    label='Price/kg'
+                    placeholder='Price Per Unit (kg)'
                     validation={{}}
                   />
 
                   <Input
                     id='weight'
-                    label='Berat(kg)'
-                    placeholder='Berat Pakaian(kg)'
+                    label='Weight (kg)'
+                    placeholder='Clothes Weight (kg)'
                     validation={{
                       pattern: {
                         value: REGEX.NUMBER_AND_DECIMAL,
-                        message: 'Berat harus dalam angka/desimal',
+                        message: 'Weight must be a number/decimal',
                       },
-                      required: 'Berat harus diisi',
+                      required: 'Weight must be filled',
                     }}
                   />
 
                   <Input
                     id='price'
-                    label='Harga Total'
-                    placeholder='Harga Total'
+                    label='Total Price'
+                    placeholder='Total Price'
                     validation={{}}
                   />
 
@@ -330,41 +335,33 @@ export default function CreateTransactionPage() {
                   <DatePicker
                     showTimeSelect={true}
                     id='dateDone'
-                    label='Tanggal Perkiraan Selesai'
+                    label='Estimated Completion Date'
                     placeholder='dd/MM/yyyy HH:mm'
                     defaultValue={getTommorrowFormatted}
                     dateFormat='dd/MM/yyyy HH:mm'
                     validation={{
-                      required: 'Tanggal Perkiraan Selesai harus diisi',
+                      required: 'Estimated Completion Date is required',
                       valueAsDate: true,
                     }}
                   />
 
                   <SearchableSelectInput
                     id='status'
-                    label='Status Pembayaran'
-                    placeholder='Status Pembayarann'
+                    label='Payment Status'
+                    placeholder='Payment Status'
                     options={[
-                      {
-                        value: 'lunas',
-                        label: 'Lunas',
-                      },
-                      {
-                        value: 'belum-bayar',
-                        label: 'Belum Bayar',
-                      },
-                      {
-                        value: 'bayar-sebagian',
-                        label: 'Bayar Sebagian',
-                      },
+                      { value: 'Paid', label: 'Paid' },
+                      { value: 'unpaid', label: 'Unpaid' },
+                      { value: 'partially-paid', label: 'Partially Paid' },
                     ]}
                     validation={{ required: 'Select Input must be filled' }}
                   />
+
                   <DatePicker
                     disabled={true}
                     showTimeSelect={true}
                     id='datePayment'
-                    label='Tanggal Pembayaran'
+                    label='Payment Date'
                     placeholder='dd/MM/yyyy HH:mm'
                     defaultYear={2024}
                     defaultValue={getDateNowFormatted}
@@ -374,15 +371,16 @@ export default function CreateTransactionPage() {
 
                   <Input
                     id='amountPayment'
-                    label='Total yang telah dibayar'
-                    placeholder='Total yang sudah dibayar'
+                    label='Total Amount Paid'
+                    placeholder='Total Amount Paid'
                     validation={{}}
                   />
 
                   <div className='col-span-2'>
-                    <TextArea id='notes' label='Catatan' />
+                    <TextArea id='notes' label='Notes' />
                   </div>
                 </div>
+
                 <Button type='submit' className='mt-6 block w-full'>
                   Create Transaction
                 </Button>

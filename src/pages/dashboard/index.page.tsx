@@ -1,7 +1,7 @@
 import { useMutation } from '@tanstack/react-query';
 import { AxiosResponse } from 'axios';
 import { format } from 'date-fns';
-import { id } from 'date-fns/locale';
+import { enUS } from 'date-fns/locale';
 import {
   BadgeDollarSign,
   Download,
@@ -142,7 +142,7 @@ function HomeDashboardPage() {
             <Typography variant='h2'>Statistics</Typography>
             <Tag color='secondary'>
               {format(new Date(date), 'PPPP', {
-                locale: id,
+                locale: enUS,
               })}
             </Tag>
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-x-6 gap-y-6 rounded-lg  py-4'>

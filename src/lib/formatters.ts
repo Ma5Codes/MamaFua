@@ -2,7 +2,7 @@ export const getDateFormatted = (date: string) => {
   if (date == null) return '-';
   const number = new Date(date);
 
-  return number.toLocaleDateString('id-ID', {
+  return number.toLocaleDateString('en-US', {
     day: '2-digit',
     month: 'long',
     year: 'numeric',
@@ -23,10 +23,10 @@ export function formatDate(date: string) {
 }
 
 export const getPriceFormmated = (price: number) => {
-  let str = new Intl.NumberFormat('id-ID', {
+  let str = new Intl.NumberFormat('en-KE', {
     style: 'currency',
-    currency: 'IDR',
+    currency: 'KES',
   }).format(price);
-  str = str.replace(/,00$/, '');
+  str = str.replace(/\.00$/, '');
   return str;
 };

@@ -33,15 +33,15 @@ export default function SelectFilter<T extends RowData>({
     return () => clearTimeout(timeout);
   }, [filter, table, columnName]);
   const optionList = [
-    { value: '', label: 'Semua' },
-    { value: 'lunas', label: 'Lunas' },
+    { value: '', label: 'All' },
+    { value: 'Paid', label: 'Paid' },
     {
       value: 'belum-bayar',
-      label: 'Belum Bayar',
+      label: 'Unpaid',
     },
     {
       value: 'bayar-sebagian',
-      label: 'Bayar Sebagian',
+      label: 'Partially Paid',
     },
   ];
   return (

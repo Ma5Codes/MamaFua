@@ -56,7 +56,7 @@ const PdfGenerator = (
               'Printed by' +
               'Administator' +
               '\nMamaFua' +
-              '\nJL. Tombolotutu No 9B' +
+              '\n Kiharu, Muranga, Kenya' +
               '\n94118',
             styles: {
               halign: 'left',
@@ -71,7 +71,7 @@ const PdfGenerator = (
       head: [
         [
           'No.',
-          'No. Nota',
+          'No. Note',
           'Name',
           'Category',
           'Status',
