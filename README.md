@@ -18,7 +18,7 @@ See the backend repository [here](https://github.com/ma5Codes/laundry-api)
 1. Clone this repository
 
    ```bash
-   git clone https://github.com/ma5Codes/laundry-fe.git
+   git clone https://github.com/ma5Codes/Mamafua.git
    ```
 
 2. Copy .env.example to .env
