@@ -11,14 +11,14 @@
 - 🧾 Log Activites tracking
 - 📂 Invoice Share and Download
 
-See the backend repository [here](https://github.com/junaediakbar/laundry-api)
+See the backend repository [here](https://github.com/ma5Codes/laundry-api)
 
 ## Getting Started
 
 1. Clone this repository
 
    ```bash
-   git clone https://github.com/junaediakbar/laundry-fe.git
+   git clone https://github.com/ma5Codes/laundry-fe.git
    ```
 
 2. Copy .env.example to .env
@@ -54,7 +54,7 @@ See the backend repository [here](https://github.com/junaediakbar/laundry-api)
 
 ## Settings Services
 
-Set your services in [services.ts](https://github.com/junaediakbar/laundry-fe/blob/main/src/constant/services.ts) with format object like this
+Set your services in [services.ts](https://github.com/ma5Codes/laundry-fe/blob/main/src/constant/services.ts) with format object like this
 
 ```bash
 const services = [
@@ -101,7 +101,7 @@ Shareable and downlaodable Nota as PDF
 
 ## Employed Secret Password
 
-Because the website only for internal (not public). I made this user-password actions. So whenever the user do an action, it will watch in Activities tab. Set them in [users.ts](https://github.com/junaediakbar/laundry-fe/blob/main/src/constant/users.ts)
+Because the website only for internal (not public). I made this user-password actions. So whenever the user do an action, it will watch in Activities tab. Set them in [users.ts](https://github.com/ma5Codes/laundry-fe/blob/main/src/constant/users.ts)
 
 ```bash
 const cashierData = [
