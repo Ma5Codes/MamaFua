@@ -133,16 +133,16 @@ function NestedNavigation({
           <Disclosure.Button
             className={clsx(
               'hover:bg-primary-500 hover:text-white',
-              'text-typo-primary',
-              'group flex w-full items-center rounded-md px-2 py-2 text-sm font-medium',
-              'focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500  focus-visible:ring-offset-primary-500',
-              'transition duration-100',
+              'text-text-primary',
+              'group flex w-full items-center rounded-xl px-3 py-2.5 text-sm font-medium',
+              'focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-bg',
+              'transition-all duration-200',
             )}
           >
             <navChildren.icon
               className={clsx(
-                'mr-1.5 flex-shrink-0',
-                'text-lg text-base-dark group-hover:text-white',
+                'mr-2 flex-shrink-0',
+                'text-lg text-text-secondary group-hover:text-white',
                 open && 'mt-[1px] self-start',
               )}
               aria-hidden='true'
@@ -152,8 +152,8 @@ function NestedNavigation({
             </span>
             <FiChevronDown
               className={clsx(
-                'flex-shrink-0 transition-transform duration-150',
-                'ml-auto text-lg text-typo-icons group-hover:text-white',
+                'flex-shrink-0 transition-transform duration-200',
+                'ml-auto text-lg text-text-secondary group-hover:text-white',
                 open && 'mt-[1px] rotate-180 self-start',
               )}
             />
@@ -200,22 +200,22 @@ function NavigationLink({
       href={navigation.href}
       className={clsxm(
         isActive
-          ? 'bg-primary-600 text-white'
-          : 'text-base-dark hover:bg-primary-100 hover:text-primary-600',
-        'group flex items-center rounded-md px-2 py-2 text-sm font-medium',
-        'focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500  focus-visible:ring-offset-primary-500',
-        'transition duration-100',
+          ? 'bg-primary-500 text-white shadow-soft'
+          : 'text-text-primary hover:bg-secondary-100 dark:hover:bg-secondary-800 hover:text-primary-500',
+        'group flex items-center rounded-xl px-3 py-2.5 text-sm font-medium',
+        'focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-bg',
+        'transition-all duration-200',
         className,
       )}
       aria-current={isActive ? 'page' : undefined}
     >
       <navigation.icon
         className={clsx(
-          'mr-1.5 flex-shrink-0',
+          'mr-2 flex-shrink-0',
           'text-lg',
           isActive
             ? 'text-white group-hover:text-white'
-            : 'text-typo-secondary group-hover:text-primary-600',
+            : 'text-text-secondary group-hover:text-primary-500',
         )}
         aria-hidden='true'
       />

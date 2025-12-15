@@ -7,6 +7,7 @@ import * as React from 'react';
 import { HiOutlineMenuAlt2 } from 'react-icons/hi';
 
 import Typography from '@/components/typography/Typography';
+import ThemeToggle from '@/components/ThemeToggle';
 
 import useAuthStore from '@/store/useAuthStore';
 
@@ -20,12 +21,12 @@ export default function Header({ setSidebarOpen }: HeaderProps) {
   const userNavigation = [{ name: 'Sign out', handleClick: logout }];
 
   return (
-    <div className='sticky top-0 z-10 bg-white shadow'>
+    <div className='sticky top-0 z-10 bg-bg-card border-b border-typo-divider shadow-soft backdrop-blur-sm bg-opacity-80 dark:bg-opacity-90'>
       <div className='dashboard-layout'>
         <div className='flex min-h-[3.5rem] flex-shrink-0 lg:min-h-[4rem] pr-4'>
           <button
             type='button'
-            className='border-r border-gray-200 px-4 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500 md:hidden'
+            className='border-r border-typo-divider px-4 text-text-secondary focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500 md:hidden transition-colors hover:text-text-primary'
             onClick={() => setSidebarOpen(true)}
           >
             <span className='sr-only'>Open sidebar</span>
@@ -35,18 +36,19 @@ export default function Header({ setSidebarOpen }: HeaderProps) {
             <div className='flex flex-1 px-2 md:px-0'>
               <Typography
                 variant='b3'
-                className='text-base-dark text-mid md:!text-base'
+                className='text-text-primary text-mid md:!text-base'
               >
                 {format(new Date(), 'PPPP', {
                   locale: enUS,
                 })}
               </Typography>
             </div>
-            <div className='flex items-center md:ml-6'>
+            <div className='flex items-center gap-3 md:ml-6'>
+              <ThemeToggle />
               {/* Profile dropdown */}
               <Menu as='div' className='relative ml-3'>
                 <div className='pr-2 sm:pr-0'>
-                  <Menu.Button className='-mr-2 flex max-w-[10rem] items-center gap-2 rounded-full bg-white sm:px-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2'>
+                  <Menu.Button className='-mr-2 flex max-w-[10rem] items-center gap-2 rounded-full bg-bg-card sm:px-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:focus:ring-offset-bg transition-all'>
                     <span className='sr-only'>Open user menu</span>
                     <Image
                       className='h-8 w-8 flex-shrink-0 overflow-hidden rounded-full'
@@ -55,14 +57,14 @@ export default function Header({ setSidebarOpen }: HeaderProps) {
                       height={256}
                       alt='avatar'
                     />
-                    <div className='hidden min-w-0 flex-1 flex-col items-start sm:flex text-base-dark max-w-full'>
+                    <div className='hidden min-w-0 flex-1 flex-col items-start sm:flex text-text-primary max-w-full'>
                       <Typography
                         variant='b3'
                         className='truncate w-full font-bold'
                       >
                         {user?.name}
                       </Typography>
-                      <Typography variant='s4' className='text-base-secondary'>
+                      <Typography variant='s4' className='text-text-secondary'>
                         {user?.role}
                       </Typography>
                     </div>
@@ -77,15 +79,15 @@ export default function Header({ setSidebarOpen }: HeaderProps) {
                   leaveFrom='transform opacity-100 scale-100'
                   leaveTo='transform opacity-0 scale-95'
                 >
-                  <Menu.Items className='absolute right-0 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none'>
+                  <Menu.Items className='absolute right-0 mt-2 w-48 origin-top-right rounded-xl bg-bg-card py-1 shadow-soft-lg ring-1 ring-typo-outline focus:outline-none'>
                     {userNavigation.map((item) => (
                       <Menu.Item key={item.name}>
                         {({ active }) => (
                           <button
                             onClick={item.handleClick}
                             className={clsx(
-                              active ? 'bg-gray-100' : '',
-                              'block w-full px-4 py-2 text-sm text-gray-700',
+                              active ? 'bg-secondary-100 dark:bg-secondary-800' : '',
+                              'block w-full px-4 py-2 text-sm text-text-primary text-left transition-colors rounded-lg mx-1',
                             )}
                           >
                             {item.name}

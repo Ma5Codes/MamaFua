@@ -110,10 +110,10 @@ const Typography: TypographyComponent = React.forwardRef(
           //#endregion  //*======== Variants ===========
           //#region  //*=========== Color ===========
           [
-            color === 'primary' && ['text-black'],
-            color === 'secondary' && ['text-gray-700'],
-            color === 'tertiary' && ['text-gray-500'],
-            color === 'danger' && ['text-red-500'],
+            color === 'primary' && ['text-text-primary'], // ✅ Theme-aware
+            color === 'secondary' && ['text-text-secondary'], // ✅ Theme-aware
+            color === 'tertiary' && ['text-gray-500 dark:text-gray-400'], // ✅ Adapts to dark mode
+            color === 'danger' && ['text-red-500 dark:text-red-400'], // ✅ Adapts to dark mode
             color === 'white' && ['text-white'],
           ],
           //#endregion  //*======== Color ===========

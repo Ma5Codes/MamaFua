@@ -13,6 +13,7 @@ import '@/styles/nprogress.css';
 
 import api from '@/lib/axios';
 import { inter } from '@/lib/font';
+import { ThemeProvider } from '@/contexts/ThemeContext';
 
 Router.events.on('routeChangeStart', nProgress.start);
 Router.events.on('routeChangeError', nProgress.done);
@@ -40,11 +41,22 @@ const queryClient = new QueryClient({
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <QueryClientProvider client={queryClient}>
-      <div className={inter.className}>
-        <Toaster />
-        <Component {...pageProps} />
-      </div>
-    </QueryClientProvider>
+    <ThemeProvider>
+      <QueryClientProvider client={queryClient}>
+        <div className={inter.className}>
+          <Toaster
+            position='top-right'
+            toastOptions={{
+              className: 'dark:bg-bg-card dark:text-text-primary',
+              style: {
+                borderRadius: '0.75rem',
+                padding: '12px 16px',
+              },
+            }}
+          />
+          <Component {...pageProps} />
+        </div>
+      </QueryClientProvider>
+    </ThemeProvider>
   );
 }
