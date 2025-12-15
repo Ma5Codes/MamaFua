@@ -8,7 +8,19 @@ const nextConfig = {
   pageExtensions: ['page.tsx', 'api.ts'],
   swcMinify: true,
 
-  // Uncoment to add domain whitelist
+  // Font loader timeout configuration
+  experimental: {
+    fontLoaders: [
+      { 
+        loader: '@next/font/google', 
+        options: { 
+          timeout: 60000 // 60 seconds timeout for font downloads
+        } 
+      }
+    ]
+  },
+
+  // Uncomment to add domain whitelist
   // images: {
   //   domains: [
   //     'res.cloudinary.com',

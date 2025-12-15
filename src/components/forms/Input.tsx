@@ -69,7 +69,7 @@ export default function Input({
             {typeof LeftIcon === 'string' ? (
               <Typography variant='s4'>{LeftIcon}</Typography>
             ) : (
-              <LeftIcon size='1em' className='text-xl text-typo' />
+              <LeftIcon size='1em' className='text-xl text-text-secondary' />
             )}
           </div>
         )}
@@ -82,14 +82,19 @@ export default function Input({
           readOnly={readOnly}
           disabled={disabled}
           className={clsx(
-            'flex w-full rounded-lg shadow-sm',
-            'min-h-[2.25rem] py-0 md:min-h-[2.5rem]',
-            'border-gray-300 focus:border-primary-500 focus:ring-primary-500',
+            'flex w-full rounded-xl shadow-soft',
+            'min-h-[2.25rem] py-0 md:min-h-[2.5rem] px-3',
+            'bg-white text-gray-900',
+            'border border-typo-outline',
+            'focus:border-primary-500 focus:ring-2 focus:ring-primary-400 focus:ring-offset-1',
+            'dark:focus:ring-offset-bg',
+            'transition-all duration-200',
             (readOnly || disabled) &&
-              'cursor-not-allowed border-gray-300 bg-gray-100 focus:border-gray-300 focus:ring-0',
-            error && 'border-red-500 focus:border-red-500 focus:ring-red-500',
+              'cursor-not-allowed border-typo-outline bg-bg opacity-60 focus:border-typo-outline focus:ring-0',
+            error && 'border-accent-500 focus:border-accent-500 focus:ring-accent-400',
             LeftIcon && 'pl-9',
             rightNode && 'pr-10',
+            'placeholder:text-text-secondary',
           )}
           placeholder={placeholder}
           aria-describedby={id}

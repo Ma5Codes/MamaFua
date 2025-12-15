@@ -22,15 +22,25 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/dashboard/transactions": [
+    "/dashboard": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/dashboard/transactions.js"
+      "static/chunks/pages/dashboard.js"
     ],
-    "/dashboard/transactions/create": [
+    "/dashboard/admin": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/dashboard/transactions/create.js"
+      "static/chunks/pages/dashboard/admin.js"
+    ],
+    "/login": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/login.js"
+    ],
+    "/register": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/register.js"
     ]
   },
   "ampFirstPages": []
