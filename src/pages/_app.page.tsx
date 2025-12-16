@@ -1,10 +1,12 @@
+import type { AppProps } from 'next/app';
+import { Router } from 'next/router';
+
 import {
   QueryClient,
   QueryClientProvider,
-  QueryOptions,
+  QueryFunctionContext,
 } from '@tanstack/react-query';
-import type { AppProps } from 'next/app';
-import { Router } from 'next/router';
+
 import nProgress from 'nprogress';
 import { Toaster } from 'react-hot-toast';
 
@@ -15,19 +17,29 @@ import api from '@/lib/axios';
 import { inter } from '@/lib/font';
 import { ThemeProvider } from '@/contexts/ThemeContext';
 
-Router.events.on('routeChangeStart', nProgress.start);
-Router.events.on('routeChangeError', nProgress.done);
-Router.events.on('routeChangeComplete', nProgress.done);
-
 import { enUS } from 'date-fns/locale';
 import { registerLocale, setDefaultLocale } from 'react-datepicker';
 
-registerLocale('en-US', enUS);
+// ===============================
+// NProgress config
+// ===============================
+Router.events.on('routeChangeStart', () => nProgress.start());
+Router.events.on('routeChangeError', () => nProgress.done());
+Router.events.on('routeChangeComplete', () => nProgress.done());
 
+// ===============================
+// Datepicker locale
+// ===============================
+registerLocale('en-US', enUS);
 setDefaultLocale('en-US');
 
-const defaultQueryFn = async ({ queryKey }: QueryOptions) => {
-  const { data } = await api.get(`${queryKey?.[0]}`);
+// ===============================
+// React Query default fetcher
+// ===============================
+const defaultQueryFn = async ({
+  queryKey,
+}: QueryFunctionContext) => {
+  const { data } = await api.get(String(queryKey[0]));
   return data;
 };
 
@@ -35,6 +47,8 @@ const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       queryFn: defaultQueryFn,
+      retry: 1,
+      refetchOnWindowFocus: false,
     },
   },
 });
