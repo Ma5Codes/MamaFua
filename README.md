@@ -71,33 +71,33 @@ const services = [
 
 #### Authentication
 
-![Login](https://ik.imagekit.io/ctrnlvyl1p/Laundry-ss/ss-login.jpg?updatedAt=1713540562327)
+![Login](https://ik.imagekit.io/mamafua/mamaFua/login.png)
 
 #### Statistic Management
 
 Downloadable receipt and readable statistic Data based on date
 
-![Home](https://ik.imagekit.io/ctrnlvyl1p/Laundry-ss/ss-home.jpg?updatedAt=1713540178032)
+![Home](https://ik.imagekit.io/mamafua/mamaFua/dashboard.png)
 
 #### Transactions Management
 
-![Transactions](https://ik.imagekit.io/ctrnlvyl1p/Laundry-ss/ss-transaction.jpg?updatedAt=1713540178217)
+![Transactions](https://ik.imagekit.io/mamafua/mamaFua/trnasactions.png)
 
 #### Add Transaction
 
 Searcable customers data, autocomplete selected customer data
 
-![Add Transaction](https://ik.imagekit.io/ctrnlvyl1p/Laundry-ss/ss-add-transaction.png?updatedAt=1713540271175)
+![Add Transaction](https://ik.imagekit.io/mamafua/mamaFua/addtransaction.png)
 
 #### Edit Transaction
 
 Shareable and downlaodable Nota as PDF
 
-![Edit Transaction](https://ik.imagekit.io/ctrnlvyl1p/Laundry-ss/ss-edit-transaction?updatedAt=1713541229418)
+![Edit Transaction](https://ik.imagekit.io/mamafua/mamaFua/edittransaction.png)
 
 #### Log Activities
 
-![Log Activities](https://ik.imagekit.io/ctrnlvyl1p/Laundry-ss/ss-activities?updatedAt=1713541331244)
+![Log Activities](https://ik.imagekit.io/mamafua/mamaFua/pdf.png)
 
 ## Employed Secret Password
 
